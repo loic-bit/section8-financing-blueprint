@@ -34,7 +34,8 @@
   .pills{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:42px}
   .pill{background:rgba(92,184,239,.1);border:1px solid rgba(92,184,239,.28);color:var(--sky-soft);padding:8px 22px;border-radius:999px;font-family:"Space Mono",monospace;font-size:11px;font-weight:700;letter-spacing:.04em}
   .avatar-ring{width:116px;height:116px;border-radius:50%;background:linear-gradient(160deg,var(--sky),var(--navy));padding:3px;margin:0 auto 18px;box-shadow:0 0 0 6px rgba(92,184,239,.12),0 20px 44px -12px rgba(0,0,0,.55)}
-  .avatar-inner{width:100%;height:100%;border-radius:50%;background:var(--panel-2);display:flex;align-items:center;justify-content:center;font-family:"Fraunces",serif;font-size:32px;font-weight:500;color:var(--sky)}
+  .avatar-inner{width:100%;height:100%;border-radius:50%;background:var(--panel-2);display:flex;align-items:center;justify-content:center;font-family:"Fraunces",serif;font-size:32px;font-weight:500;color:var(--sky);overflow:hidden}
+  .avatar-inner img{width:100%;height:100%;object-fit:cover;object-position:top center;border-radius:50%}
   .hero-name{font-size:18px;font-weight:700;margin-bottom:4px}
   .hero-role{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
 
@@ -149,10 +150,36 @@
   .cta-eyebrow{font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--sky);margin-bottom:16px}
   .cta-h{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(32px,5.5vw,54px);line-height:1.02;letter-spacing:-.02em;margin-bottom:16px}
   .cta-h em{color:var(--sky);font-style:italic}
-  .cta-p{color:var(--muted);max-width:520px;margin:0 auto 32px;font-size:15.5px;line-height:1.6}
-  .cta-btn{display:inline-block;padding:18px 50px;border-radius:999px;background:linear-gradient(180deg,var(--sky),var(--navy));color:#04111f;text-decoration:none;font-family:"DM Sans",sans-serif;font-weight:700;font-size:17px;box-shadow:0 14px 34px -10px rgba(92,184,239,.6);transition:transform .15s,box-shadow .15s}
-  .cta-btn:hover{transform:translateY(-2px);box-shadow:0 20px 44px -10px rgba(92,184,239,.8)}
-  .cta-note{font-family:"Space Mono",monospace;font-size:11px;color:var(--dim);margin-top:16px}
+  .cta-p{color:var(--muted);max-width:560px;margin:0 auto 0;font-size:15.5px;line-height:1.6}
+  .cta-note{font-family:"Space Mono",monospace;font-size:11px;color:var(--dim);margin-top:28px}
+  .cta-note a{color:var(--sky);text-decoration:none}
+  /* two-card grid */
+  .cta-cards{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:32px 0 0;text-align:left}
+  .cta-card{border-radius:16px;padding:32px;display:flex;flex-direction:column}
+  .cta-card--primary{background:var(--panel);border:1px solid var(--line)}
+  .cta-card--accent{background:linear-gradient(160deg,#1a6fb5,var(--navy));border:1px solid rgba(92,184,239,.45)}
+  .cta-card-tag{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:5px 12px;border-radius:999px;display:inline-block;margin-bottom:18px;width:fit-content}
+  .cta-card--primary .cta-card-tag{color:var(--sky);background:rgba(92,184,239,.1);border:1px solid rgba(92,184,239,.25)}
+  .cta-card--accent .cta-card-tag{color:#04111f;background:rgba(255,255,255,.25);border:1px solid rgba(255,255,255,.3)}
+  .cta-card-title{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(22px,3.5vw,28px);line-height:1.05;margin-bottom:14px}
+  .cta-card--primary .cta-card-title{color:var(--ink)}
+  .cta-card--accent .cta-card-title{color:#fff}
+  .cta-card-desc{font-size:14.5px;line-height:1.6;margin-bottom:20px}
+  .cta-card--primary .cta-card-desc{color:var(--muted)}
+  .cta-card--accent .cta-card-desc{color:rgba(255,255,255,.8)}
+  .cta-card-list{list-style:none;margin-bottom:28px;flex:1}
+  .cta-card-list li{padding:6px 0 6px 24px;position:relative;font-size:14px}
+  .cta-card-list li::before{content:"✓";position:absolute;left:0;font-weight:700}
+  .cta-card--primary .cta-card-list li{color:var(--muted)}
+  .cta-card--primary .cta-card-list li::before{color:var(--teal)}
+  .cta-card--accent .cta-card-list li{color:rgba(255,255,255,.85)}
+  .cta-card--accent .cta-card-list li::before{color:#fff}
+  .cta-card-btn{display:block;text-align:center;padding:15px 28px;border-radius:999px;font-family:"DM Sans",sans-serif;font-weight:700;font-size:15px;text-decoration:none;transition:transform .15s,box-shadow .15s}
+  .cta-card-btn:hover{transform:translateY(-2px)}
+  .cta-card-btn--sky{background:linear-gradient(180deg,var(--sky),var(--navy));color:#04111f;box-shadow:0 12px 28px -8px rgba(92,184,239,.55)}
+  .cta-card-btn--sky:hover{box-shadow:0 18px 36px -8px rgba(92,184,239,.75)}
+  .cta-card-btn--dark{background:#04111f;color:#fff;border:1px solid rgba(255,255,255,.2)}
+  .cta-card-btn--dark:hover{box-shadow:0 12px 28px -8px rgba(0,0,0,.4)}
 
   footer{padding:32px 0 40px;text-align:center;font-family:"Space Mono",monospace;font-size:11px;color:var(--dim);line-height:1.8}
 
@@ -162,6 +189,7 @@
     .strat-top{display:flex;flex-direction:column;gap:8px}
     .strat-n{font-size:34px;width:auto;opacity:.3}
     .timeline{grid-template-columns:repeat(2,1fr)}
+    .cta-cards{grid-template-columns:1fr}
   }
 </style>
 </head>
@@ -179,7 +207,9 @@
       <span class="pill">100+ Students</span>
     </div>
     <div class="avatar-ring">
-      <div class="avatar-inner">JK</div>
+      <div class="avatar-inner" id="avatar-inner">
+        <img src="headshot.jpg" alt="Joseph Khateri" onerror="this.remove();document.getElementById('avatar-inner').textContent='JK'">
+      </div>
     </div>
     <div class="hero-name">Joseph Khateri</div>
     <div class="hero-role">Licensed Realtor &middot; Virginia</div>
@@ -611,10 +641,40 @@
   <!-- CTA -->
   <div class="cta">
     <div class="cta-eyebrow">You now have the blueprint</div>
-    <h2 class="cta-h">The next step<br>is <em>yours.</em></h2>
-    <p class="cta-p">Book a free strategy call and we will map out the exact path for your situation: your credit, your cash, your market. You walk away knowing your next move.</p>
-    <a class="cta-btn" href="https://api.leadconnectorhq.com/widget/booking/q13zxFCnlBaMetvAwOKz" target="_blank" rel="noopener">Book Your Free Strategy Call &rarr;</a>
-    <p class="cta-note">No pressure. No pitch. Just a clear plan.</p>
+    <h2 class="cta-h">The Next Step<br>Is <em>Yours.</em></h2>
+    <p class="cta-p">Based on your situation, there are two ways I can help you go from this guide to your first (or next) Section 8 property.</p>
+
+    <div class="cta-cards">
+      <!-- 1-on-1 Mentorship -->
+      <div class="cta-card cta-card--primary">
+        <div class="cta-card-tag">STARTING OUT &middot; $20K+</div>
+        <h3 class="cta-card-title">1-on-1 Mentorship</h3>
+        <p class="cta-card-desc">I walk you through every step personally. Market selection, financing, deal analysis, inspection, tenant placement. You get my number. We talk until you close.</p>
+        <ul class="cta-card-list">
+          <li>Direct Joseph guidance</li>
+          <li>Vetted lender + contractor network</li>
+          <li>Guaranteed support until you succeed</li>
+          <li>One-time fee</li>
+        </ul>
+        <a class="cta-card-btn cta-card-btn--sky" href="https://api.leadconnectorhq.com/widget/booking/q13zxFCnlBaMetvAwOKz" target="_blank" rel="noopener">Book Your Free Strategy Call</a>
+      </div>
+
+      <!-- Done For You -->
+      <div class="cta-card cta-card--accent">
+        <div class="cta-card-tag">HANDS-OFF &middot; $150K+</div>
+        <h3 class="cta-card-title">Done For You Service</h3>
+        <p class="cta-card-desc">You bring the capital. We find the property, handle financing, coordinate rehab, and place the Section 8 tenant. Completely passive.</p>
+        <ul class="cta-card-list">
+          <li>Full acquisition management</li>
+          <li>Section 8 inspection + tenant placement</li>
+          <li>Charged per door</li>
+          <li>Turnkey or BRRRR available</li>
+        </ul>
+        <a class="cta-card-btn cta-card-btn--dark" href="https://go.investingsection8.com/e99e71ae" target="_blank" rel="noopener">Apply for Done For You</a>
+      </div>
+    </div>
+
+    <p class="cta-note">Questions? DM me on Instagram <a href="https://instagram.com/josephkhaterie" target="_blank" rel="noopener">@josephkhaterie</a> or visit <a href="https://investingsection8.com/" target="_blank" rel="noopener">investingsection8.com</a></p>
   </div>
 
 </div>
