@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Section 8 Financing Blueprint | Investing Section 8</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#081325;--panel:#0e1f3a;--panel-2:#132847;--line:#244268;
+    --ink:#eaf2fb;--muted:#93a8c4;--dim:#5f78a0;--navy:#1d4f8c;
+    --sky:#5cb8ef;--sky-soft:#79c6f2;--teal:#52cdb6;--warn:#e08a5a;
+    --shadow:0 24px 60px -20px rgba(0,0,0,.65);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:"DM Sans",sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:900px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
+
+  /* HERO */
+  .hero{
+    text-align:center;padding:clamp(64px,11vw,120px) clamp(20px,4vw,56px) clamp(52px,9vw,96px);
+    background:
+      radial-gradient(1000px 520px at 50% -10%,rgba(92,184,239,.13),transparent 60%),
+      radial-gradient(700px 420px at 10% 120%,rgba(29,79,140,.22),transparent 55%),
+      var(--bg);
+    border-bottom:1px solid var(--line);
+  }
+  .hero-eyebrow{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--sky);margin-bottom:18px}
+  .hero-title{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(42px,9vw,86px);line-height:.93;letter-spacing:-.025em;margin-bottom:24px}
+  .hero-title em{color:var(--sky);font-style:italic}
+  .hero-sub{color:var(--muted);font-size:17px;max-width:520px;margin:0 auto 34px;line-height:1.55}
+  .pills{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:42px}
+  .pill{background:rgba(92,184,239,.1);border:1px solid rgba(92,184,239,.28);color:var(--sky-soft);padding:8px 22px;border-radius:999px;font-family:"Space Mono",monospace;font-size:11px;font-weight:700;letter-spacing:.04em}
+  .avatar-ring{width:116px;height:116px;border-radius:50%;background:linear-gradient(160deg,var(--sky),var(--navy));padding:3px;margin:0 auto 18px;box-shadow:0 0 0 6px rgba(92,184,239,.12),0 20px 44px -12px rgba(0,0,0,.55)}
+  .avatar-inner{width:100%;height:100%;border-radius:50%;background:var(--panel-2);display:flex;align-items:center;justify-content:center;font-family:"Fraunces",serif;font-size:32px;font-weight:500;color:var(--sky)}
+  .hero-name{font-size:18px;font-weight:700;margin-bottom:4px}
+  .hero-role{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
+
+  /* SECTIONS */
+  .section{padding:clamp(44px,7vw,80px) 0;border-bottom:1px solid var(--line)}
+  .section:last-of-type{border-bottom:none}
+  .eyebrow{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--sky);margin-bottom:12px}
+  .section-h{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(26px,4vw,40px);line-height:1.05;letter-spacing:-.02em;margin-bottom:14px}
+  .section-sub{color:var(--muted);font-size:15px;margin-bottom:32px;line-height:1.6}
+
+  /* WARNING */
+  .warning{background:rgba(224,138,90,.07);border:1px solid rgba(224,138,90,.28);border-radius:14px;padding:20px 24px;margin-bottom:28px}
+  .warning-label{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--warn);margin-bottom:8px;font-weight:700}
+  .warning p{font-size:13.5px;color:var(--muted);line-height:1.65}
+  .warning strong{color:var(--ink)}
+
+  /* REFERENCE TABLE */
+  .ref-table{width:100%;border-collapse:collapse;margin-bottom:28px;font-size:13.5px}
+  .ref-table th{background:var(--panel-2);border-bottom:2px solid var(--sky);padding:12px 16px;text-align:left;font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--sky-soft);font-weight:700}
+  .ref-table td{padding:12px 16px;border-bottom:1px solid var(--line);color:var(--ink);vertical-align:middle}
+  .ref-table tr:last-child td{border-bottom:none}
+  .ref-table td:first-child{color:var(--sky-soft);font-weight:600}
+  .ref-table td:last-child{font-family:"Space Mono",monospace;font-size:12px}
+  .rec{display:inline-block;background:var(--teal);color:#04111f;font-family:"Space Mono",monospace;font-size:9px;font-weight:700;padding:2px 8px;border-radius:4px;letter-spacing:.07em;text-transform:uppercase;margin-left:6px;vertical-align:middle}
+
+  /* RECO BOX */
+  .rec-box{background:var(--panel-2);border:1px solid var(--line);border-radius:16px;padding:24px 28px;position:relative;overflow:hidden}
+  .rec-box::before{content:"";position:absolute;inset:0 0 auto 0;height:2px;background:linear-gradient(90deg,transparent,var(--sky),transparent)}
+  .rec-box-label{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--sky);margin-bottom:12px;font-weight:700}
+  .rec-box p{font-size:14px;color:var(--muted);line-height:1.75}
+  .rec-box strong{color:var(--ink)}
+
+  /* STRATEGY CARDS */
+  .strategies{display:flex;flex-direction:column;gap:22px}
+  .strategy{background:var(--panel);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}
+  .strat-top{padding:22px 28px;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;gap:16px}
+  .strat-n{font-family:"Fraunces",serif;font-size:46px;font-weight:500;color:var(--sky);line-height:1;opacity:.35;flex-shrink:0;width:50px}
+  .strat-meta{}
+  .strat-tag{display:inline-block;background:rgba(92,184,239,.1);border:1px solid rgba(92,184,239,.24);color:var(--sky-soft);font-family:"Space Mono",monospace;font-size:10px;font-weight:700;padding:4px 12px;border-radius:4px;letter-spacing:.07em;text-transform:uppercase;margin-bottom:8px}
+  .strat-title{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(18px,2.5vw,24px);line-height:1.1}
+  .strat-body{padding:22px 28px}
+  .strat-desc{font-size:14px;color:var(--muted);line-height:1.72;margin-bottom:20px}
+  .strat-cols{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px}
+  .strat-col{background:var(--panel-2);border:1px solid var(--line);border-radius:12px;padding:18px}
+  .col-label{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+  .req-list{list-style:none}
+  .req-list li{font-size:13px;color:var(--ink);padding:5px 0;display:flex;gap:8px;align-items:flex-start;border-bottom:1px solid rgba(36,66,104,.35)}
+  .req-list li:last-child{border-bottom:none}
+  .req-list li::before{content:"·";color:var(--sky);font-size:20px;line-height:.9;flex-shrink:0}
+  .pros{list-style:none;margin-bottom:10px}
+  .pros li{font-size:13px;color:var(--teal);padding:4px 0;display:flex;gap:8px;align-items:flex-start}
+  .pros li::before{content:"+";font-weight:700;flex-shrink:0}
+  .cons{list-style:none}
+  .cons li{font-size:13px;color:var(--warn);padding:4px 0;display:flex;gap:8px;align-items:flex-start}
+  .cons li::before{content:"-";font-weight:700;flex-shrink:0}
+  .joseph-take{background:var(--panel-2);border-left:3px solid var(--sky);border-radius:0 12px 12px 0;padding:18px 22px}
+  .joseph-take-label{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--sky);margin-bottom:8px;font-weight:700}
+  .joseph-take p{font-size:13.5px;color:var(--muted);line-height:1.72}
+
+  /* CASE STUDIES */
+  .case-studies{display:flex;flex-direction:column;gap:34px}
+  .cs{background:var(--panel);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}
+  .cs-head{padding:22px 28px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+  .cs-head::before{content:"";position:absolute;inset:0 0 auto 0;height:2px;background:linear-gradient(90deg,transparent,var(--sky),transparent)}
+  .cs-eyebrow{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--sky);margin-bottom:6px}
+  .cs-name{font-family:"Fraunces",serif;font-weight:500;font-size:26px;margin-bottom:10px}
+  .cs-badges{display:flex;gap:8px;flex-wrap:wrap}
+  .cs-badge{display:inline-block;padding:4px 12px;border-radius:999px;font-family:"Space Mono",monospace;font-size:10px;font-weight:700}
+  .badge-loc{background:var(--panel-2);border:1px solid var(--line);color:var(--muted)}
+  .badge-strat{background:rgba(92,184,239,.1);border:1px solid rgba(92,184,239,.26);color:var(--sky-soft)}
+  .cs-body{padding:24px 28px}
+  .cs-intro{font-size:14px;color:var(--muted);line-height:1.72;margin-bottom:22px}
+  .deal-card{background:var(--panel-2);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:22px}
+  .deal-card-label{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--sky);margin-bottom:14px;font-weight:700}
+  .deal-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--line);font-size:13px;gap:16px}
+  .deal-row:last-child{border-bottom:none}
+  .dk{color:var(--muted);flex-shrink:0}
+  .dv{color:var(--ink);font-weight:600;font-family:"Space Mono",monospace;font-size:12px;text-align:right}
+  .dv.hi{color:var(--sky)}
+  .dv.teal{color:var(--teal)}
+  .timeline-wrap{margin-bottom:22px}
+  .timeline-label{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;font-weight:700}
+  .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .tl{text-align:center}
+  .tl-dot{width:12px;height:12px;border-radius:50%;background:var(--sky);margin:0 auto 8px;box-shadow:0 0 10px rgba(92,184,239,.5)}
+  .tl-num{font-family:"Space Mono",monospace;font-size:9px;color:var(--sky);letter-spacing:.07em;text-transform:uppercase;margin-bottom:4px;font-weight:700}
+  .tl-text{font-size:11px;color:var(--muted);line-height:1.4}
+  .key-lesson{background:rgba(92,184,239,.07);border:1px solid rgba(92,184,239,.18);border-radius:12px;padding:16px 20px;margin-bottom:12px}
+  .key-lesson-label{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--sky);margin-bottom:8px;font-weight:700}
+  .key-lesson p{font-size:13px;color:var(--muted);line-height:1.72}
+  .disclaimer{font-size:11px;color:var(--dim);font-style:italic}
+
+  /* MYTHS */
+  .myths-table{width:100%;border-collapse:collapse;margin-bottom:24px}
+  .myths-table th{background:var(--panel-2);border-bottom:2px solid var(--line);padding:12px 16px;font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;text-align:left;font-weight:700}
+  .myths-table th:first-child{color:var(--warn)}
+  .myths-table th:last-child{color:var(--teal)}
+  .myths-table td{padding:14px 16px;border-bottom:1px solid var(--line);font-size:13px;line-height:1.55;vertical-align:top}
+  .myths-table tr:last-child td{border-bottom:none}
+  .myths-table td:first-child{color:var(--warn)}
+  .myths-table td:last-child{color:var(--teal)}
+  .ethics{background:var(--panel-2);border:1px solid var(--line);border-radius:14px;padding:20px 24px;font-size:14px;color:var(--muted);line-height:1.72}
+  .ethics strong{color:var(--sky-soft)}
+
+  /* CTA */
+  .cta{text-align:center;padding:clamp(60px,9vw,100px) 24px;
+    background:radial-gradient(700px 320px at 50% -30%,rgba(92,184,239,.18),transparent 70%),
+      linear-gradient(180deg,var(--panel-2),var(--panel));
+    border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);
+    position:relative;overflow:hidden;margin-top:60px;margin-bottom:40px}
+  .cta::before{content:"";position:absolute;inset:0 0 auto 0;height:2px;background:linear-gradient(90deg,transparent,var(--sky),transparent)}
+  .cta-eyebrow{font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--sky);margin-bottom:16px}
+  .cta-h{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(32px,5.5vw,54px);line-height:1.02;letter-spacing:-.02em;margin-bottom:16px}
+  .cta-h em{color:var(--sky);font-style:italic}
+  .cta-p{color:var(--muted);max-width:520px;margin:0 auto 32px;font-size:15.5px;line-height:1.6}
+  .cta-btn{display:inline-block;padding:18px 50px;border-radius:999px;background:linear-gradient(180deg,var(--sky),var(--navy));color:#04111f;text-decoration:none;font-family:"DM Sans",sans-serif;font-weight:700;font-size:17px;box-shadow:0 14px 34px -10px rgba(92,184,239,.6);transition:transform .15s,box-shadow .15s}
+  .cta-btn:hover{transform:translateY(-2px);box-shadow:0 20px 44px -10px rgba(92,184,239,.8)}
+  .cta-note{font-family:"Space Mono",monospace;font-size:11px;color:var(--dim);margin-top:16px}
+
+  footer{padding:32px 0 40px;text-align:center;font-family:"Space Mono",monospace;font-size:11px;color:var(--dim);line-height:1.8}
+
+  @media(max-width:640px){
+    .strat-cols,.strat-top{flex-direction:column}
+    .strat-cols{display:flex;flex-direction:column}
+    .strat-top{display:flex;flex-direction:column;gap:8px}
+    .strat-n{font-size:34px;width:auto;opacity:.3}
+    .timeline{grid-template-columns:repeat(2,1fr)}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-eyebrow">Exclusive Guide by Joseph Khateri</div>
+    <h1 class="hero-title">The Section 8<br><em>Financing Blueprint</em></h1>
+    <p class="hero-sub">The exact loan strategies used to build a $2.2M portfolio. And which one is right for you.</p>
+    <div class="pills">
+      <span class="pill">$2.2M+ Portfolio</span>
+      <span class="pill">$32K / Month</span>
+      <span class="pill">100+ Students</span>
+    </div>
+    <div class="avatar-ring">
+      <div class="avatar-inner">JK</div>
+    </div>
+    <div class="hero-name">Joseph Khateri</div>
+    <div class="hero-role">Licensed Realtor &middot; Virginia</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- HOW TO USE -->
+  <section class="section">
+    <div class="eyebrow">Start here</div>
+    <h2 class="section-h">How to use this guide</h2>
+    <p class="section-sub">Five strategies. One table. Find your situation, read your strategy, take action. Everything else is noise.</p>
+
+    <div class="warning">
+      <div class="warning-label">Important</div>
+      <p>These strategies are built for the 2025 to 2026 market. Seller financing and Subject-To deals are <strong>not included</strong> because they do not reliably work in the current interest rate environment. Any guru still promoting these as primary strategies has not closed a deal recently.</p>
+    </div>
+
+    <table class="ref-table">
+      <thead>
+        <tr>
+          <th>Strategy</th>
+          <th>Best For</th>
+          <th>Min. Cash</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Classic 20% Conventional</td>
+          <td>Stable W2, 720+ credit</td>
+          <td>~$25K</td>
+        </tr>
+        <tr>
+          <td>Classic 20% DSCR <span class="rec">Recommended</span></td>
+          <td>Self-employed, LLC buyers</td>
+          <td>~$27K</td>
+        </tr>
+        <tr>
+          <td>3% Conventional / 3.5% FHA</td>
+          <td>First-timers, house hackers</td>
+          <td>~$8K</td>
+        </tr>
+        <tr>
+          <td>Business Credit into BRRRR <span class="rec">Recommended</span></td>
+          <td>Entrepreneurs, fast scalers</td>
+          <td>$0 (realistically $10-12K)</td>
+        </tr>
+        <tr>
+          <td>Hard Money into BRRRR <span class="rec">Recommended</span></td>
+          <td>Rehabbers, experienced investors</td>
+          <td>~$15-17K</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="rec-box">
+      <div class="rec-box-label">Joseph's Top 2 Picks</div>
+      <p><strong>Turnkey DSCR Purchase.</strong> The cleanest path for most investors. Buy a ready-to-rent property under your LLC with no income verification required.<br><br><strong>Any Form of BRRRR.</strong> Whether you use business credit or hard money, the BRRRR method lets you recycle your capital and scale faster than any other strategy on this list.</p>
+    </div>
+  </section>
+
+  <!-- STRATEGIES -->
+  <section class="section">
+    <div class="eyebrow">The 5 strategies</div>
+    <h2 class="section-h">Pick your path</h2>
+    <p class="section-sub">Every strategy below has closed real deals with real students. None of them are theory.</p>
+
+    <div class="strategies">
+
+      <!-- Strategy 01 -->
+      <div class="strategy">
+        <div class="strat-top">
+          <div class="strat-n">01</div>
+          <div class="strat-meta">
+            <div class="strat-tag">Best for: Stable W2 &middot; 720+ Credit</div>
+            <div class="strat-title">Classic 20% Conventional Loan</div>
+          </div>
+        </div>
+        <div class="strat-body">
+          <p class="strat-desc">The most straightforward investment loan. You put 20% down, get the best interest rates on the market, and keep things simple. The catch: stricter requirements and you max out at 10 loans.</p>
+          <div class="strat-cols">
+            <div class="strat-col">
+              <div class="col-label">Requirements</div>
+              <ul class="req-list">
+                <li>720+ credit score</li>
+                <li>Stable W2 income (2+ years tax returns)</li>
+                <li>Low debt-to-income ratio (under 40%)</li>
+                <li>20% down payment</li>
+                <li>$3,500 + 2% of purchase price in closing costs</li>
+              </ul>
+            </div>
+            <div class="strat-col">
+              <div class="col-label">Pros &amp; Cons</div>
+              <ul class="pros">
+                <li>Lowest interest rates (~7%)</li>
+                <li>No prepayment penalty on most</li>
+                <li>Simple qualification</li>
+              </ul>
+              <ul class="cons">
+                <li>Cannot close under LLC until 6-12 months seasoning</li>
+                <li>Maxes out at 10 loans total</li>
+                <li>Harder to find lenders for sub-$100K homes</li>
+              </ul>
+            </div>
+          </div>
+          <div class="joseph-take">
+            <div class="joseph-take-label">Joseph's Take</div>
+            <p>This is the cleanest loan if you have a strong W2 and great credit. The LLC restriction is annoying but workable. If you plan to scale past 10 doors, you will need to layer in DSCR loans anyway.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Strategy 02 -->
+      <div class="strategy">
+        <div class="strat-top">
+          <div class="strat-n">02</div>
+          <div class="strat-meta">
+            <div class="strat-tag">Best for: Self-Employed &middot; LLC Buyers &middot; No Income Verification</div>
+            <div class="strat-title">Classic 20% DSCR Loan</div>
+          </div>
+        </div>
+        <div class="strat-body">
+          <p class="strat-desc">DSCR stands for Debt Service Coverage Ratio. Instead of verifying your personal income, the lender looks at whether the property's rental income covers the mortgage. This is the loan 80% of my students use.</p>
+          <div class="strat-cols">
+            <div class="strat-col">
+              <div class="col-label">Requirements</div>
+              <ul class="req-list">
+                <li>680+ credit score</li>
+                <li>20% down (15% if you already own 1 rental)</li>
+                <li>No W2 or income verification needed</li>
+                <li>Property must appraise</li>
+                <li>Can close under LLC from day one</li>
+              </ul>
+            </div>
+            <div class="strat-col">
+              <div class="col-label">Pros &amp; Cons</div>
+              <ul class="pros">
+                <li>Close under LLC immediately</li>
+                <li>Fast closings</li>
+                <li>Works for foreign nationals (35% down)</li>
+                <li>No income limits or W2 required</li>
+              </ul>
+              <ul class="cons">
+                <li>Interest rate 0.5-1% higher than conventional</li>
+                <li>Still needs appraisal</li>
+                <li>Slightly higher fees</li>
+              </ul>
+            </div>
+          </div>
+          <div class="joseph-take">
+            <div class="joseph-take-label">Joseph's Take</div>
+            <p>This is my #1 recommendation for most investors. The slightly higher rate is worth the flexibility, especially if you are self-employed, have multiple income streams, or want asset protection through an LLC from day one. Pair this with a turnkey property and you have the cleanest path to cash flow.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Strategy 03 -->
+      <div class="strategy">
+        <div class="strat-top">
+          <div class="strat-n">03</div>
+          <div class="strat-meta">
+            <div class="strat-tag">Best for: First-Timers &middot; House Hackers &middot; Limited Cash</div>
+            <div class="strat-title">3% Conventional or 3.5% FHA</div>
+          </div>
+        </div>
+        <div class="strat-body">
+          <p class="strat-desc">The lowest barrier to entry. You live in the property for at least 1 year, then convert it to a rental. Perfect for house hacking a multifamily or getting your first property with minimal cash.</p>
+          <div class="strat-cols">
+            <div class="strat-col">
+              <div class="col-label">Requirements</div>
+              <ul class="req-list">
+                <li>580+ credit (FHA) or 620+ (Conventional 3%)</li>
+                <li>Must live in property minimum 1 year</li>
+                <li>Stable income (2 years)</li>
+                <li>Low debt-to-income ratio</li>
+              </ul>
+            </div>
+            <div class="strat-col">
+              <div class="col-label">Pros &amp; Cons</div>
+              <ul class="pros">
+                <li>Lowest down payment (3-3.5%)</li>
+                <li>Great for house hacking multifamily</li>
+                <li>Accessible for first-timers</li>
+              </ul>
+              <ul class="cons">
+                <li>Must live there 1 year minimum</li>
+                <li>Mortgage insurance required (0.5-1.5% annually)</li>
+                <li>FHA has strict property condition requirements</li>
+              </ul>
+            </div>
+          </div>
+          <div class="joseph-take">
+            <div class="joseph-take-label">Joseph's Take</div>
+            <p>If you have under $15K and a stable job, this is your entry point. Buy a duplex, live in one unit, rent the other to a Section 8 tenant. After 1 year, move out and repeat.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Strategy 04 -->
+      <div class="strategy">
+        <div class="strat-top">
+          <div class="strat-n">04</div>
+          <div class="strat-meta">
+            <div class="strat-tag">Best for: Entrepreneurs &middot; Fast Scalers &middot; 0% Interest Window</div>
+            <div class="strat-title">Business Credit Stacking into BRRRR</div>
+          </div>
+        </div>
+        <div class="strat-body">
+          <p class="strat-desc">Stack multiple 0% business credit cards through an LLC to fund a BRRRR deal with virtually no cash out of pocket. High risk, high reward. Only viable if you can execute the rehab and refinance within 12-18 months.</p>
+          <div class="strat-cols">
+            <div class="strat-col">
+              <div class="col-label">Requirements</div>
+              <ul class="req-list">
+                <li>Established LLC</li>
+                <li>Good personal credit (700+)</li>
+                <li>Ability to manage rehab timeline</li>
+                <li>Must refinance before 0% period ends</li>
+              </ul>
+            </div>
+            <div class="strat-col">
+              <div class="col-label">Pros &amp; Cons</div>
+              <ul class="pros">
+                <li>Can start with $0 cash (realistically $10-12K)</li>
+                <li>0% interest for 12-18 months</li>
+                <li>Can do multiple BRRRRs simultaneously</li>
+              </ul>
+              <ul class="cons">
+                <li>10-12% lender fees on credit obtained</li>
+                <li>Extremely risky if rehab goes over budget or timeline</li>
+                <li>Requires strong credit and LLC history</li>
+              </ul>
+            </div>
+          </div>
+          <div class="joseph-take">
+            <div class="joseph-take-label">Joseph's Take</div>
+            <p>One of my top recommended strategies for people who want to scale fast. The BRRRR method lets you recycle your capital, meaning you can do deal after deal without needing a full down payment each time. Only attempt this if you have reliable contractors who hit their timelines.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Strategy 05 -->
+      <div class="strategy">
+        <div class="strat-top">
+          <div class="strat-n">05</div>
+          <div class="strat-meta">
+            <div class="strat-tag">Best for: Rehabbers &middot; Experienced Investors &middot; Portfolio Scaling</div>
+            <div class="strat-title">Hard Money / Private Money into BRRRR</div>
+          </div>
+        </div>
+        <div class="strat-body">
+          <p class="strat-desc">Use a private money lender at 12-13% interest to buy a distressed property, rehab it, get it appraised, then refinance into a DSCR loan, pulling out 75-80% of the appraised value to recycle your capital.</p>
+          <div class="strat-cols">
+            <div class="strat-col">
+              <div class="col-label">Requirements</div>
+              <ul class="req-list">
+                <li>620+ credit score</li>
+                <li>~$15-17K for down payment and renovations</li>
+                <li>Access to reliable contractors</li>
+                <li>Understanding of ARV (after-repair value)</li>
+                <li>Ability to manage a 4-month rehab timeline</li>
+              </ul>
+            </div>
+            <div class="strat-col">
+              <div class="col-label">Pros &amp; Cons</div>
+              <ul class="pros">
+                <li>Recycle capital for next deal</li>
+                <li>Build equity fast through forced appreciation</li>
+                <li>One of the most efficient paths to scaling</li>
+              </ul>
+              <ul class="cons">
+                <li>12-13% interest during rehab period</li>
+                <li>$4,500-5,000 in lender closing fees</li>
+                <li>Risky if ARV comes in lower than expected</li>
+                <li>Requires part-time management during rehab</li>
+              </ul>
+            </div>
+          </div>
+          <div class="joseph-take">
+            <div class="joseph-take-label">Joseph's Take</div>
+            <p>One of my top recommended strategies and how most of my students scale past their first property. Our average BRRRR leaves $10-17K in the deal, roughly half the cost of a turnkey purchase. The key is having vetted contractors who hit their timelines.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CASE STUDIES -->
+  <section class="section">
+    <div class="eyebrow">Real student results</div>
+    <h2 class="section-h">The numbers from actual deals</h2>
+    <p class="section-sub">Not projections. Not simulations. Deals that closed.</p>
+
+    <div class="case-studies">
+
+      <!-- Case Study 1: Yasir -->
+      <div class="cs">
+        <div class="cs-head">
+          <div class="cs-eyebrow">Case Study 01 &middot; BRRRR Strategy</div>
+          <div class="cs-name">Yasir Tariq</div>
+          <div class="cs-badges">
+            <span class="cs-badge badge-loc">Birmingham, Alabama</span>
+            <span class="cs-badge badge-strat">Cash Purchase / Rehab / DSCR Refinance</span>
+          </div>
+        </div>
+        <div class="cs-body">
+          <p class="cs-intro">Yasir was our first mentorship student. He purchased the property in cash, rehabbed it, then refinanced into a DSCR loan after the property appraised, recycling most of his capital back out. Business credit was also an option to fund the rehab, and is a viable alternative for investors who want to preserve their cash. Here is exactly how the numbers worked.</p>
+          <div class="deal-card">
+            <div class="deal-card-label">Deal Breakdown</div>
+            <div class="deal-row"><span class="dk">Purchase Price</span><span class="dv">$75,000 (negotiated to $72,000)</span></div>
+            <div class="deal-row"><span class="dk">Rehab Cost</span><span class="dv">$9,000</span></div>
+            <div class="deal-row"><span class="dk">Total Into Deal</span><span class="dv">$81,000</span></div>
+            <div class="deal-row"><span class="dk">After-Repair Value (Appraisal)</span><span class="dv hi">$100,000</span></div>
+            <div class="deal-row"><span class="dk">DSCR Refinance (75% of ARV)</span><span class="dv hi">$75,000 pulled out</span></div>
+            <div class="deal-row"><span class="dk">Cash Left In Deal</span><span class="dv">~$6,000</span></div>
+            <div class="deal-row"><span class="dk">Monthly Section 8 Rent</span><span class="dv teal">$1,250 / mo</span></div>
+            <div class="deal-row"><span class="dk">Monthly Mortgage (DSCR)</span><span class="dv">~$580 / mo</span></div>
+            <div class="deal-row"><span class="dk">Monthly Net Cash Flow</span><span class="dv teal">~$420 / mo</span></div>
+          </div>
+          <div class="timeline-wrap">
+            <div class="timeline-label">Timeline</div>
+            <div class="timeline">
+              <div class="tl"><div class="tl-dot"></div><div class="tl-num">Month 1-2</div><div class="tl-text">Cash purchase + rehab completed</div></div>
+              <div class="tl"><div class="tl-dot"></div><div class="tl-num">Month 3</div><div class="tl-text">Property passes Section 8 inspection</div></div>
+              <div class="tl"><div class="tl-dot"></div><div class="tl-num">Month 4</div><div class="tl-text">Tenant placed, rent begins</div></div>
+              <div class="tl"><div class="tl-dot"></div><div class="tl-num">Month 5</div><div class="tl-text">DSCR refinance closes, capital recycled</div></div>
+            </div>
+          </div>
+          <div class="key-lesson">
+            <div class="key-lesson-label">Key Lesson</div>
+            <p>By purchasing in cash and rehabbing the property, Yasir was able to refinance out most of his capital through the DSCR loan. Investors who want to preserve cash can achieve a similar result by using 0% business credit cards to fund the rehab instead. He is now under contract on his second property using the same system.</p>
+          </div>
+          <p class="disclaimer">Results are not guaranteed. Individual outcomes vary based on market conditions, credit, and execution.</p>
+        </div>
+      </div>
+
+      <!-- Case Study 2: Daniel -->
+      <div class="cs">
+        <div class="cs-head">
+          <div class="cs-eyebrow">Case Study 02 &middot; Turnkey DSCR</div>
+          <div class="cs-name">Daniel Bier</div>
+          <div class="cs-badges">
+            <span class="cs-badge badge-loc">Detroit, Michigan</span>
+            <span class="cs-badge badge-strat">Turnkey Purchase &middot; 20% DSCR &middot; Seller-Funded Repairs</span>
+          </div>
+        </div>
+        <div class="cs-body">
+          <p class="cs-intro">Daniel took the simpler path: a turnkey DSCR purchase with a twist. He negotiated for the seller to cover all repairs as a condition of the sale, meaning he closed on a move-in-ready property without paying a dollar in rehab out of pocket. He funded the remaining work through 0% business credit cards, which he will pay off using cash flow.</p>
+          <div class="deal-card">
+            <div class="deal-card-label">Deal Breakdown</div>
+            <div class="deal-row"><span class="dk">Purchase Price</span><span class="dv">$80,000 (negotiated to $76,000)</span></div>
+            <div class="deal-row"><span class="dk">Rehab Cost</span><span class="dv">$4,200 (via 0% business credit cards)</span></div>
+            <div class="deal-row"><span class="dk">Seller Concessions</span><span class="dv hi">Seller covered all required repairs</span></div>
+            <div class="deal-row"><span class="dk">Down Payment (20% DSCR)</span><span class="dv">$15,200</span></div>
+            <div class="deal-row"><span class="dk">Closing Costs</span><span class="dv">~$6,700</span></div>
+            <div class="deal-row"><span class="dk">Total Out of Pocket</span><span class="dv">~$21,900</span></div>
+            <div class="deal-row"><span class="dk">After-Repair Appraisal</span><span class="dv hi">$95,000</span></div>
+            <div class="deal-row"><span class="dk">Monthly Section 8 Rent</span><span class="dv teal">$1,400 / mo</span></div>
+            <div class="deal-row"><span class="dk">Monthly Mortgage (DSCR)</span><span class="dv">~$620 / mo</span></div>
+            <div class="deal-row"><span class="dk">Monthly Net Cash Flow</span><span class="dv teal">~$480 / mo</span></div>
+          </div>
+          <div class="timeline-wrap">
+            <div class="timeline-label">Timeline</div>
+            <div class="timeline">
+              <div class="tl"><div class="tl-dot"></div><div class="tl-num">Month 1</div><div class="tl-text">Offer accepted, seller agrees to cover repairs</div></div>
+              <div class="tl"><div class="tl-dot"></div><div class="tl-num">Month 2</div><div class="tl-text">Inspection passed, DSCR loan approved</div></div>
+              <div class="tl"><div class="tl-dot"></div><div class="tl-num">Month 3</div><div class="tl-text">Closes, rehab funded via 0% CC</div></div>
+              <div class="tl"><div class="tl-dot"></div><div class="tl-num">Month 4</div><div class="tl-text">Section 8 tenant placed, $1,400/mo begins</div></div>
+            </div>
+          </div>
+          <div class="key-lesson">
+            <div class="key-lesson-label">Key Lesson</div>
+            <p>Daniel did not pay for rehab out of pocket. By negotiating seller concessions and using 0% business credit for the remaining $4,200, his true cash-to-close was under $22K on a property now worth $95K. Cash flow covers the CC payoff within 9 months.</p>
+          </div>
+          <p class="disclaimer">Results are not guaranteed. Individual outcomes vary based on market conditions, credit, and execution.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MYTHS -->
+  <section class="section">
+    <div class="eyebrow">Straight talk</div>
+    <h2 class="section-h">What other gurus won't tell you</h2>
+    <p class="section-sub">The Section 8 space is full of misleading claims. Here is the truth.</p>
+
+    <table class="myths-table">
+      <thead>
+        <tr>
+          <th>What They Claim</th>
+          <th>The Reality</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>"30% ROI guaranteed"</td>
+          <td>Realistic ROI is 15-20% with proper analysis</td>
+        </tr>
+        <tr>
+          <td>"Seller financing is the best strategy"</td>
+          <td>Seller financing rarely works in 2025. Terms are terrible for buyers in a high-rate environment</td>
+        </tr>
+        <tr>
+          <td>"Subject-To deals are everywhere"</td>
+          <td>Subject-To deals are extremely rare and usually require large cash to the table</td>
+        </tr>
+        <tr>
+          <td>"Cash flow is $800+/month"</td>
+          <td>Realistic net cash flow after all expenses is $350-500/month</td>
+        </tr>
+        <tr>
+          <td>"Turnkey homes need zero maintenance"</td>
+          <td>Even turnkey homes typically need $2,000-3,000 at move-in to pass Section 8 inspection</td>
+        </tr>
+        <tr>
+          <td>"HUD rates are what you can charge"</td>
+          <td>HUD FMR rates are the maximum the government will pay. Actual market rents are often lower</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="ethics">
+      <strong>I am a licensed realtor in Virginia.</strong> I have a legal and ethical obligation to give you accurate information. That is not something most people selling real estate courses can say.
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta">
+    <div class="cta-eyebrow">You now have the blueprint</div>
+    <h2 class="cta-h">The next step<br>is <em>yours.</em></h2>
+    <p class="cta-p">Book a free strategy call and we will map out the exact path for your situation: your credit, your cash, your market. You walk away knowing your next move.</p>
+    <a class="cta-btn" href="https://investingsection8.com/emails" target="_blank" rel="noopener">Book Your Free Strategy Call &rarr;</a>
+    <p class="cta-note">No pressure. No pitch. Just a clear plan.</p>
+  </div>
+
+</div>
+
+<footer>
+  Investing Section 8 with Joseph Khateri &middot; investingsection8.com<br>
+  Not financial advice. Results vary. &copy; 2026 All Rights Reserved.
+</footer>
+
+</body>
+</html>
